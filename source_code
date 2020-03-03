@@ -1,0 +1,44 @@
+# Youtube URL: https://youtu.be/kYgMGzcY9Oc
+# Truzz Blogg: How to hide password(user input) on console using Python code
+
+# *** Method Nº 1 - Using getpass Module
+
+import getpass
+
+def hidden():
+    name = input("Enter your name: ")
+    email = input("Enter your em@il: ")
+    password = getpass.getpass("Enter your Top Secret password: ")
+    password_again = getpass.getpass("Enter your Top Secret password AGAIN: ")
+
+    # print("Your password is {} and your password AGAIN is {} ".format(password, password_again))
+
+    if password == password_again:
+        print ("Ok! Your password is OK!")
+    else:
+        print("Upppsss! Your password does not match! Try again!")
+        hidden()
+
+hidden()
+
+
+# *** Method Nº 2 - Using Tkinter
+
+# Hidden Password - Python + Tkinter - Truzz Blogg
+
+from tkinter import *
+
+mywindow = Tk()
+mywindow.geometry("600x500")
+mywindow.title("Creating hidden passwords in Tkinter")
+mywindow.resizable(False,False)
+mywindow.config(background="#413141")
+
+password_label = Label(text="Password", bg="#FFEEDD")
+password_label.place(x = 22, y = 130)
+password = StringVar()
+password_entry = Entry(textvariable=password, width="40", show="*")
+password_entry.place(x = 85, y = 130)
+
+
+mywindow.mainloop()
